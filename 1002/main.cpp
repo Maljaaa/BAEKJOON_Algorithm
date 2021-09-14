@@ -11,10 +11,15 @@ void solution(vector<int>& count){
     d = sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
     if(d > (r2 - r1) && d < (r1 + r2))
         count.push_back(2);
-    else if(d == (r2 - r1) || d == (r1 + r2))
-        count.push_back(1);
+    else if(d == (r2 - r1) || d == (r1 + r2)){
+        if(x1 == x2 && y1 == y2 && r1 == r2)
+            count.push_back(-1);
+        else
+            count.push_back(1);
+    }
     else if(d < (r2 - r1) || d > (r1 + r2))
         count.push_back(0);
+    
 }
 
 int main(){
